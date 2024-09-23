@@ -3,7 +3,6 @@ const axios = require('axios')
 require("dotenv").config();
 
 const scrapeLogic = async (postData, res) => {
-  console.log(postData.url, postData.projectId, postData.period)
   try {
     const request = await axios.post(postData.url, {
       projectId: postData.projectId,
@@ -34,7 +33,7 @@ const scrapeLogic = async (postData, res) => {
       await browser.close();
     }
   } catch (e) {
-    console.log('!!!!!', e);
+    console.log('!!!!!', e, postData.url, postData.projectId, postData.period, process.env.NODE_ENV);
   }
 };
 
